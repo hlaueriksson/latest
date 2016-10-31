@@ -1,3 +1,7 @@
+> This app is hosted at [http://henrik.laueriksson.com/latest/](http://henrik.laueriksson.com/latest/)
+
+> Build with `npm run build`
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.  
