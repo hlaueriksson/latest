@@ -27,7 +27,7 @@ class Blog extends Component {
   }
   render() {
     return (
-      <div className="Blog">
+      <div className="Blog social">
         <h2>Blog</h2>
         <p>Post: <a href={this.state.blog.link}>{this.state.blog.title}</a></p>
       </div>

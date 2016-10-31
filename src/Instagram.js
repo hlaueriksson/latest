@@ -32,7 +32,10 @@ class Instagram extends Component {
     }
     render() {
         return (
-            <div className="Instagram" ref="instagram" dangerouslySetInnerHTML={this.createMarkup()} />
+            <div className="Instagram social" ref="instagram">
+                <h2>Instagram</h2>
+                <div dangerouslySetInnerHTML={this.createMarkup()} />
+            </div>
         );
     }
     componentDidUpdate() {

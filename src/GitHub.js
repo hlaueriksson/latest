@@ -31,7 +31,7 @@ class GitHub extends Component {
   }
   render() {
     return (
-      <div className="GitHub">
+      <div className="GitHub social">
         <h2>GitHub</h2>
         <p>Repo: <a href={"https://github.com/" + this.state.github.repo.name}>{this.state.github.repo.name}</a></p>
         <p>Commit: <a href={"https://github.com/" + this.state.github.commit.repo + "/commit/" + this.state.github.commit.sha}>{this.state.github.commit.message}</a></p>

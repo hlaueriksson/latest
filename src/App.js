@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       config: {
         gravatar: {
-          url: "https://s.gravatar.com/avatar/27df7a0a062537ef9116a1572707d5e0?s=200",
+          url: "https://s.gravatar.com/avatar/27df7a0a062537ef9116a1572707d5e0?s=100",
           alt: "Henrik Lau Eriksson"
         },
         blog: {
@@ -32,16 +32,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h1>Latest</h1>
+          <div className="wrapper">
+            <Gravatar config={this.state.config.gravatar} />
+            <h1>Latest</h1>
+          </div>
         </div>
-        <p className="App-intro">
-          My latest online activities
-        </p>
-        <Gravatar config={this.state.config.gravatar} />
-        <Blog config={this.state.config.blog} />
-        <Twitter />
-        <GitHub config={this.state.config.github} />
-        <Instagram config={this.state.config.instagram} />
+        <div className="wrapper">
+          <p className="App-intro">My latest online activities</p>
+          <Blog config={this.state.config.blog} />
+          <Twitter />
+          <GitHub config={this.state.config.github} />
+          <Instagram config={this.state.config.instagram} />
+        </div>
       </div>
     );
   }

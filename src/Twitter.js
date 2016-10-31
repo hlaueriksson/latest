@@ -14,11 +14,12 @@ class Twitter extends Component {
   }
   render() {
     return (
-      <div className="Twitter" ref="twitter">
+      <div className="Twitter social" ref="twitter">
+        <h2>Twitter</h2>
         <a className="twitter-timeline"
-        href="https://twitter.com/hlaueriksson"
-        data-chrome="noheader nofooter noborders"
-        data-tweet-limit="1">Tweets by hlaueriksson</a>
+          href="https://twitter.com/hlaueriksson"
+          data-chrome="noheader nofooter noborders"
+          data-tweet-limit="1">Tweets by hlaueriksson</a>
       </div>
     );
   }
