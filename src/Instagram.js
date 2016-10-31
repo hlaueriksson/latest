@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from "jquery";
-import './Instagram.css';
 
 class Instagram extends Component {
     constructor(props) {

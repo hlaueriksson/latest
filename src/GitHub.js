@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import $ from "jquery";
-import './GitHub.css';
 
 class GitHub extends Component {
   constructor(props) {
