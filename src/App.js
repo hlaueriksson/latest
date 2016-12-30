@@ -16,14 +16,14 @@ class App extends Component {
           alt: "Henrik Lau Eriksson"
         },
         blog: {
-          url: "http://hlaueriksson-latest-api.azurewebsites.net/api/query/BlogQuery",
+          url: "http://latestapiprod.azurewebsites.net/api/query/BlogQuery",
         },
         github: {
-          url: "http://hlaueriksson-latest-api.azurewebsites.net/api/query/GitHubQuery",
+          url: "http://latestapiprod.azurewebsites.net/api/query/GitHubQuery",
           username: "hlaueriksson"
         },
         instagram: {
-          url: "http://hlaueriksson-latest-api.azurewebsites.net/api/query/InstagramQuery",
+          url: "http://latestapiprod.azurewebsites.net/api/query/InstagramQuery",
         }
       }
     };
