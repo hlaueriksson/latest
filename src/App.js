@@ -4,6 +4,7 @@ import Blog from './Blog'
 import Twitter from './Twitter';
 import GitHub from './GitHub';
 import Instagram from './Instagram'
+import Spotify from './Spotify'
 import './App.css';
 
 class App extends Component {
@@ -24,6 +25,9 @@ class App extends Component {
         },
         instagram: {
           url: "http://latest-functions.azurewebsites.net/api/query/InstagramQuery",
+        },
+        spotify: {
+          url: "https://embed.spotify.com/?uri=spotify%3Auser%3Ahlaueriksson%3Aplaylist%3A7eMrc3TgYi1JaB3OtpblWa"
         }
       }
     };
@@ -43,6 +47,7 @@ class App extends Component {
           <Twitter />
           <GitHub config={this.state.config.github} />
           <Instagram config={this.state.config.instagram} />
+          <Spotify config={this.state.config.spotify} />
         </div>
       </div>
     );
