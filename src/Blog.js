@@ -5,7 +5,9 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blog: {}
+      blog: {
+        Title: "..."
+      }
     };
   }
   componentDidMount() {
@@ -29,7 +31,7 @@ class Blog extends Component {
     return (
       <div className="Blog social">
         <h2>Blog</h2>
-        <p>Post: <a href={this.state.blog.link}>{this.state.blog.title}</a></p>
+        <p>Post: <a href={this.state.blog.Link}>{this.state.blog.Title}</a></p>
       </div>
     );
   }

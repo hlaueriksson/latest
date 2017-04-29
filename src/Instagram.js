@@ -6,7 +6,9 @@ class Instagram extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            instagram: {}
+            instagram: {
+                Html: "<span>...</span>"
+            }
         };
     }
     componentDidMount() {
@@ -27,7 +29,7 @@ class Instagram extends Component {
         });
     }
     createMarkup() {
-        return { __html: this.state.instagram.html };
+        return { __html: this.state.instagram.Html };
     }
     render() {
         return (
