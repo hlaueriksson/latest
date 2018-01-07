@@ -6,11 +6,11 @@ class GitHub extends Component {
     super(props);
     this.state = {
       github: {
-        Repo: {
-          Name: "..."
+        repo: {
+          name: "..."
         },
-        Commit: {
-          Message: "..."
+        commit: {
+          message: "..."
         }
       }
     };
@@ -36,8 +36,8 @@ class GitHub extends Component {
     return (
       <div className="GitHub social">
         <h2>GitHub</h2>
-        <p>Repo: <a href={this.state.github.Repo.Link}>{this.state.github.Repo.Name}</a></p>
-        <p>Commit: <a href={this.state.github.Commit.Link}>{this.state.github.Commit.Message}</a></p>
+        <p>Repo: <a href={this.state.github.repo.link}>{this.state.github.repo.name}</a></p>
+        <p>Commit: <a href={this.state.github.commit.link}>{this.state.github.commit.message}</a></p>
       </div>
     );
   }
