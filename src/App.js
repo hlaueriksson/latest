@@ -17,17 +17,17 @@ class App extends Component {
           alt: "Henrik Lau Eriksson"
         },
         blog: {
-          url: "http://latest-functions.azurewebsites.net/api/query/BlogQuery",
+          url: "https://latest-functions.azurewebsites.net/api/query/BlogQuery",
         },
         github: {
-          url: "http://latest-functions.azurewebsites.net/api/query/GitHubQuery",
+          url: "https://latest-functions.azurewebsites.net/api/query/GitHubQuery",
           username: "hlaueriksson"
         },
         instagram: {
-          url: "http://latest-functions.azurewebsites.net/api/query/InstagramQuery",
+          url: "https://latest-functions.azurewebsites.net/api/query/InstagramQuery",
         },
         spotify: {
-          url: "https://embed.spotify.com/?uri=spotify%3Auser%3Ahlaueriksson%3Aplaylist%3A7eMrc3TgYi1JaB3OtpblWa"
+          url: "https://open.spotify.com/embed/user/hlaueriksson/playlist/7eMrc3TgYi1JaB3OtpblWa"
         }
       }
     };

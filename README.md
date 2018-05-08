@@ -1,4 +1,4 @@
-> This app is hosted at [http://henrik.laueriksson.com/latest/](http://henrik.laueriksson.com/latest/)
+> This app is hosted at [https://henrik.laueriksson.com/latest/](https://henrik.laueriksson.com/latest/)
 
 > Build with `npm run build`
 
