@@ -6,11 +6,11 @@ class GitHub extends Component {
     super(props);
     this.state = {
       github: {
-        repo: {
-          name: "..."
+        Repo: {
+          Name: "..."
         },
-        commit: {
-          message: "..."
+        Commit: {
+          Message: "..."
         }
       }
     };
@@ -23,7 +23,7 @@ class GitHub extends Component {
         'Content-Type': 'application/json'
       },
       dataType: 'json',
-      data: JSON.stringify({ Username: this.props.config.username }),
+      data: JSON.stringify({}),
       success: function (data) {
         this.setState({ github: data });
       }.bind(this),
@@ -32,12 +32,21 @@ class GitHub extends Component {
       }.bind(this)
     });
   }
+  getLinkText() {
+    if (this.state.github.Commit.Repo == null) {
+      return (
+        <span>{this.state.github.Commit.Message}</span>
+      );
+    }
+    return (
+      <span>{this.state.github.Commit.Repo}: {this.state.github.Commit.Message}</span>
+    );
+  }
   render() {
     return (
       <div className="GitHub social">
         <h2>GitHub</h2>
-        <p>Repo: <a href={this.state.github.repo.link}>{this.state.github.repo.name}</a></p>
-        <p>Commit: <a href={this.state.github.commit.link}>{this.state.github.commit.message}</a></p>
+        <p>Commit: <a href={this.state.github.Commit.Link}>{this.getLinkText()}</a></p>
       </div>
     );
   }

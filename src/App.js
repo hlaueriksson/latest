@@ -20,8 +20,7 @@ class App extends Component {
           url: "https://latest-functions.azurewebsites.net/api/query/BlogQuery",
         },
         github: {
-          url: "https://latest-functions.azurewebsites.net/api/query/GitHubQuery",
-          username: "hlaueriksson"
+          url: "https://latest-functions.azurewebsites.net/api/query/GitHubQuery"
         },
         instagram: {
           url: "https://latest-functions.azurewebsites.net/api/query/InstagramQuery",

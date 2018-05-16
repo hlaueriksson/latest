@@ -7,7 +7,7 @@ class Instagram extends Component {
         super(props);
         this.state = {
             instagram: {
-                html: "<span>...</span>"
+                Html: "<span>...</span>"
             }
         };
     }
@@ -29,7 +29,7 @@ class Instagram extends Component {
         });
     }
     createMarkup() {
-        return { __html: this.state.instagram.html };
+        return { __html: this.state.instagram.Html };
     }
     render() {
         return (

@@ -6,7 +6,7 @@ class Blog extends Component {
     super(props);
     this.state = {
       blog: {
-        title: "..."
+        Title: "..."
       }
     };
   }
@@ -31,7 +31,7 @@ class Blog extends Component {
     return (
       <div className="Blog social">
         <h2>Blog</h2>
-        <p>Post: <a href={this.state.blog.link}>{this.state.blog.title}</a></p>
+        <p>Post: <a href={this.state.blog.Link}>{this.state.blog.Title}</a></p>
       </div>
     );
   }
