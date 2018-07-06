@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import $ from "jquery";
 
 class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blog: {
-        Title: "..."
-      }
+      blog: null
     };
   }
   componentDidMount() {
@@ -15,14 +13,14 @@ class Blog extends Component {
       url: this.props.config.url,
       type: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      dataType: 'json',
+      dataType: "json",
       data: JSON.stringify({}),
-      success: function (data) {
+      success: function(data) {
         this.setState({ blog: data });
       }.bind(this),
-      error: function (xhr, status, err) {
+      error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
@@ -31,9 +29,20 @@ class Blog extends Component {
     return (
       <div className="Blog social">
         <h2>Blog</h2>
-        <p>Post: <a href={this.state.blog.Link}>{this.state.blog.Title}</a></p>
+        <p>Post: {this.getPost()}</p>
       </div>
     );
+  }
+  getPost() {
+    if (this.state.blog) {
+      try {
+        return <a href={this.state.blog.link}>{this.state.blog.title}</a>;
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    return <span>...</span>;
   }
 }
 

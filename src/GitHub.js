@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import $ from "jquery";
 
 class GitHub extends Component {
@@ -6,12 +6,7 @@ class GitHub extends Component {
     super(props);
     this.state = {
       github: {
-        Repo: {
-          Name: "..."
-        },
-        Commit: {
-          Message: "..."
-        }
+        repo: null
       }
     };
   }
@@ -20,35 +15,40 @@ class GitHub extends Component {
       url: this.props.config.url,
       type: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      dataType: 'json',
+      dataType: "json",
       data: JSON.stringify({}),
-      success: function (data) {
+      success: function(data) {
         this.setState({ github: data });
       }.bind(this),
-      error: function (xhr, status, err) {
+      error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  }
-  getLinkText() {
-    if (this.state.github.Commit.Repo == null) {
-      return (
-        <span>{this.state.github.Commit.Message}</span>
-      );
-    }
-    return (
-      <span>{this.state.github.Commit.Repo}: {this.state.github.Commit.Message}</span>
-    );
   }
   render() {
     return (
       <div className="GitHub social">
         <h2>GitHub</h2>
-        <p>Commit: <a href={this.state.github.Commit.Link}>{this.getLinkText()}</a></p>
+        <p>Repo: {this.getRepo()}</p>
       </div>
     );
+  }
+  getRepo() {
+    if (this.state.github.repo) {
+      try {
+        return (
+          <a href={this.state.github.repo.link}>
+            {this.state.github.repo.name}
+          </a>
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    return <span>...</span>;
   }
 }
 
