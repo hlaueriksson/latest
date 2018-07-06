@@ -10,14 +10,8 @@ class Instagram extends Component {
     };
   }
   componentDidMount() {
-    $.ajax({
+    $.get({
       url: this.props.config.url,
-      type: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      dataType: "json",
-      data: JSON.stringify({}),
       success: function(data) {
         this.setState({ instagram: data });
       }.bind(this),
