@@ -1,0 +1,5 @@
+@inject IOptions<GravatarOptions> options
+
+<div class="Gravatar">
+    <img src="@options.Value.Url" alt="@options.Value.Alt" />
+</div>

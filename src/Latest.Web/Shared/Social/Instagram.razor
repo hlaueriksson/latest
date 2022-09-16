@@ -1,0 +1,19 @@
+@inject IOptions<InstagramOptions> options
+@inject HttpClient Http
+
+<div class="Instagram social">
+    <h2>Instagram</h2>
+</div>
+
+@code {
+    private InstagramData? Result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Result = await Http.GetFromJsonAsync<InstagramData>(options.Value.Url);
+    }
+
+    public class InstagramData
+    {
+    }
+}

@@ -1,9 +1,18 @@
-﻿@page "/"
+@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Latest</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<div class="header">
+    <Gravatar />
+    <h1>Latest</h1>
+</div>
+<div class="wrapper">
+    <p>My latest online activities</p>
+    <Blog />
+    <Twitter />
+    <GitHub />
+    <ErrorBoundary>
+        <Instagram />
+    </ErrorBoundary>
+    <Spotify />
+</div>

@@ -1,0 +1,23 @@
+@inject IOptions<BlogOptions> options
+@inject HttpClient Http
+
+<div class="Blog social">
+    <h2>Blog</h2>
+    <p>Post: <a href="@Result?.Link">@Result?.Title</a></p>
+</div>
+
+@code {
+    private BlogData? Result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Result = await Http.GetFromJsonAsync<BlogData>(options.Value.Url);
+    }
+
+    public class BlogData
+    {
+        public string Title { get; set; }
+        public DateTime Published { get; set; }
+        public string Link { get; set; }
+    }
+}

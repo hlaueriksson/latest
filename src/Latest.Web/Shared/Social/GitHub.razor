@@ -1,0 +1,27 @@
+@inject IOptions<GitHubOptions> options
+@inject HttpClient Http
+
+<div class="GitHub social">
+    <h2>GitHub</h2>
+    <p>Repo: <a href="@Result?.Repo.Link">@Result?.Repo.Name</a></p>
+</div>
+
+@code {
+    private GitHubData? Result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Result = await Http.GetFromJsonAsync<GitHubData>(options.Value.Url);
+    }
+
+    public class GitHubData
+    {
+        public GitHubRepo Repo { get; set; }
+    }
+
+    public class GitHubRepo
+    {
+        public string Name { get; set; }
+        public string Link { get; set; }
+    }
+}

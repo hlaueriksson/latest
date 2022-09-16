@@ -1,0 +1,6 @@
+@inject IOptions<SpotifyOptions> options
+
+<div class="Spotify social">
+    <h2>Spotify</h2>
+    <iframe src="@options.Value.Url" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media" title="Latest"></iframe>
+</div>
