@@ -1,5 +1,6 @@
-@inject IOptions<BlogOptions> options
-@inject HttpClient Http
+@using CommandQuery.Client
+@using Latest.Contracts.Queries
+@inject IQueryClient QueryClient
 
 <div class="Blog social">
     <h2>Blog</h2>
@@ -11,13 +12,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Result = await Http.GetFromJsonAsync<BlogData>(options.Value.Url);
-    }
-
-    public class BlogData
-    {
-        public string Title { get; set; }
-        public DateTime Published { get; set; }
-        public string Link { get; set; }
+        Result = await QueryClient.GetAsync(new BlogQuery());
     }
 }

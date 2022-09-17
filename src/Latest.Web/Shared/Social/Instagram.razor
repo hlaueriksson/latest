@@ -1,19 +1,17 @@
-@inject IOptions<InstagramOptions> options
-@inject HttpClient Http
+@using CommandQuery.Client
+@using Latest.Contracts.Queries
+@inject IQueryClient QueryClient
 
 <div class="Instagram social">
     <h2>Instagram</h2>
+    @((MarkupString)Result!.Html)
 </div>
 
 @code {
-    private InstagramData? Result;
+    private InstagramData? Result = new();
 
     protected override async Task OnInitializedAsync()
     {
-        Result = await Http.GetFromJsonAsync<InstagramData>(options.Value.Url);
-    }
-
-    public class InstagramData
-    {
+        Result = await QueryClient.GetAsync(new InstagramQuery());
     }
 }

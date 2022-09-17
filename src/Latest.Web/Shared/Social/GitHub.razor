@@ -1,5 +1,6 @@
-@inject IOptions<GitHubOptions> options
-@inject HttpClient Http
+@using CommandQuery.Client
+@using Latest.Contracts.Queries
+@inject IQueryClient QueryClient
 
 <div class="GitHub social">
     <h2>GitHub</h2>
@@ -11,17 +12,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Result = await Http.GetFromJsonAsync<GitHubData>(options.Value.Url);
-    }
-
-    public class GitHubData
-    {
-        public GitHubRepo Repo { get; set; }
-    }
-
-    public class GitHubRepo
-    {
-        public string Name { get; set; }
-        public string Link { get; set; }
+        Result = await QueryClient.GetAsync(new GitHubQuery());
     }
 }

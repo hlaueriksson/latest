@@ -1,24 +1,14 @@
 namespace Latest.Web
 {
-    public class BlogOptions
+    public class FunctionsOptions
     {
-        public string Url { get; set; }
-    }
-
-    public class GitHubOptions
-    {
-        public string Url { get; set; }
+        public string QueryUrl { get; set; }
     }
 
     public class GravatarOptions
     {
         public string Url { get; set; }
         public string Alt { get; set; }
-    }
-
-    public class InstagramOptions
-    {
-        public string Url { get; set; }
     }
 
     public class SpotifyOptions

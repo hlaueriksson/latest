@@ -1,7 +1,14 @@
+@inject IOptions<TwitterOptions> options
+
 <div class="Twitter social">
     <h2>Twitter</h2>
     <a class="twitter-timeline"
-       href="https://twitter.com/hlaueriksson"
+       href="@options.Value.Url"
        data-chrome="noheader nofooter noborders"
        data-tweet-limit="1">Tweets by hlaueriksson</a>
+    @((MarkupString)Script)
 </div>
+
+@code {
+    private string Script = "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+}
