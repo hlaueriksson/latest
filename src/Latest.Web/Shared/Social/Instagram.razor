@@ -1,5 +1,6 @@
 @using CommandQuery.Client
 @using Latest.Contracts.Queries
+@inject IJSRuntime JS
 @inject IQueryClient QueryClient
 
 <div class="Instagram social">
@@ -13,5 +14,13 @@
     protected override async Task OnInitializedAsync()
     {
         Result = await QueryClient.GetAsync(new InstagramQuery());
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var url = "https://www.instagram.com/embed.js";
+        await JS.InvokeVoidAsync("import", url);
     }
 }

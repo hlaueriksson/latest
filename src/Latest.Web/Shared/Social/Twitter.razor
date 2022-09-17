@@ -1,14 +1,20 @@
+@inject IJSRuntime JS
 @inject IOptions<TwitterOptions> options
 
 <div class="Twitter social">
     <h2>Twitter</h2>
     <a class="twitter-timeline"
        href="@options.Value.Url"
-       data-chrome="noheader nofooter noborders"
+       data-chrome="noheader nofooter"
        data-tweet-limit="1">Tweets by hlaueriksson</a>
-    @((MarkupString)Script)
 </div>
 
 @code {
-    private string Script = "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var url = "https://platform.twitter.com/widgets.js";
+        await JS.InvokeVoidAsync("import", url);
+    }
 }
