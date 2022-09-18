@@ -1,11 +1,12 @@
 @inject IJSRuntime JS
 @inject IOptions<TwitterOptions> options
 
-<div class="Twitter social">
+<div>
     <h2>Twitter</h2>
     <a class="twitter-timeline"
        href="@options.Value.Url"
        data-chrome="noheader nofooter"
+       data-width="300"
        data-tweet-limit="1">Tweets by hlaueriksson</a>
 </div>
 
