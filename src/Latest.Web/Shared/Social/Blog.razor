@@ -1,0 +1,17 @@
+@using CommandQuery.Client
+@using Latest.Contracts.Queries
+@inject IQueryClient QueryClient
+
+<div>
+    <h2>Blog</h2>
+    <p>Post: <a href="@Result?.Link">@Result?.Title</a></p>
+</div>
+
+@code {
+    private BlogData? Result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Result = await QueryClient.GetAsync(new BlogQuery());
+    }
+}

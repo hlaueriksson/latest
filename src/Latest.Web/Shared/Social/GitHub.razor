@@ -1,0 +1,17 @@
+@using CommandQuery.Client
+@using Latest.Contracts.Queries
+@inject IQueryClient QueryClient
+
+<div>
+    <h2>GitHub</h2>
+    <p>Repo: <a href="@Result?.Repo.Link">@Result?.Repo.Name</a></p>
+</div>
+
+@code {
+    private GitHubData? Result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Result = await QueryClient.GetAsync(new GitHubQuery());
+    }
+}
