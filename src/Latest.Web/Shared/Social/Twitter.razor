@@ -1,7 +1,7 @@
 @inject IJSRuntime JS
 @inject IOptions<TwitterOptions> options
 
-<div>
+<div @ref="element">
     <h2>Twitter</h2>
     <a class="twitter-timeline"
        href="@options.Value.Url"
@@ -11,11 +11,13 @@
 </div>
 
 @code {
+    private ElementReference element;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!firstRender) return;
 
-        var url = "https://platform.twitter.com/widgets.js";
-        await JS.InvokeVoidAsync("import", url);
+        var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Shared/Social/Twitter.razor.js");
+        await module.InvokeVoidAsync("scriptify", element);
     }
 }

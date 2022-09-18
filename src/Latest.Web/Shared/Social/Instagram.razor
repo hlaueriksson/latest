@@ -3,12 +3,13 @@
 @inject IJSRuntime JS
 @inject IQueryClient QueryClient
 
-<div>
+<div @ref="element">
     <h2>Instagram</h2>
     @((MarkupString)Result!.Html)
 </div>
 
 @code {
+    private ElementReference element;
     private InstagramData? Result = new();
 
     protected override async Task OnInitializedAsync()
@@ -20,7 +21,7 @@
     {
         if (!firstRender) return;
 
-        var url = "https://www.instagram.com/embed.js";
-        await JS.InvokeVoidAsync("import", url);
+        var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Shared/Social/Instagram.razor.js");
+        await module.InvokeVoidAsync("scriptify", element);
     }
 }
